@@ -57,6 +57,10 @@ public class ResultSetBootExample {
                     ResultSetBoot.wrap(resultSet)
                             .toJson());
 
+            String pathExample = "MATCH p=(v:player{age:32})-[e:follow*1..]->(v2) RETURN p LIMIT 1;";
+            System.out.println("Path Example: " + pathExample);
+            resultSet = sessionPool.execute(pathExample);
+            System.out.println("Result json (default)-> " + ResultSetBoot.wrap(resultSet).toJson());
 
         } catch (IOErrorException | ClientServerIncompatibleException | AuthFailedException | BindSpaceFailedException |
                  UnsupportedEncodingException e) {

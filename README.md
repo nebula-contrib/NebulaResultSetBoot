@@ -53,6 +53,10 @@ Result json (rowOriented,withColumnName)-> [{properties(EDGE).start_year=null, p
 Example 4: MATCH (v:player{age:32})-[e:follow|:serve]->(v2) RETURN e;
 Result json (default)-> [{"dst":"player102","src":"player103","name":"follow","ranking":0,"properties":{"degree":70}},{"dst":"team204","src":"player103","name":"serve","ranking":0,"properties":{"end_year":2019,"start_year":2017}},{"dst":"team208","src":"player103","name":"serve","ranking":0,"properties":{"end_year":2017,"start_year":2013}},{"dst":"team212","src":"player103","name":"serve","ranking":0,"properties":{"end_year":2013,"start_year":2006}},{"dst":"team218","src":"player103","name":"serve","ranking":0,"properties":{"end_year":2013,"start_year":2013}}]
 ```
+```
+Path Example: MATCH p=(v:player{age:32})-[e:follow*1..]->(v2) RETURN p LIMIT 1;
+Result json (default)-> [{"segments":[{"edge":{"dst":"player102","src":"player103","name":"follow","ranking":0,"properties":{"degree":70}},"dst":{"id":"player102","tags":[{"name":"player","properties":{"name":"LaMarcus Aldridge","age":33}}]},"src":{"id":"player103","tags":[{"name":"player","properties":{"name":"Rudy Gay","age":32}}]}}]}]
+```
 ### Custom Serialization Format
 Inherit BaseParser
 ```java
