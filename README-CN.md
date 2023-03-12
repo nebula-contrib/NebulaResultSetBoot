@@ -42,7 +42,7 @@ Result json（withColumnName) -> {"p":[[{"id":"player127","tags":[{"name":"playe
 ```
 ```
 Example 2: GO FROM "player100", "player102" OVER serve WHERE properties(edge).start_year > 1995 YIELD DISTINCT properties($$).name AS team_name, properties(edge).start_year AS start_year, properties($^).name AS player_name;
-Result json (rowOriented,withColumnName) -> [{start_year=1997, player_name=Tim Duncan, team_name=Spurs}, {start_year=2006, player_name=LaMarcus Aldridge, team_name=Trail Blazers}, {start_year=2015, player_name=LaMarcus Aldridge, team_name=Spurs}]
+Result json (rowOriented,withColumnName) -> [{"team_name":"Spurs","start_year":1997,"player_name":"Tim Duncan"},{"team_name":"Trail Blazers","start_year":2006,"player_name":"LaMarcus Aldridge"},{"team_name":"Spurs","start_year":2015,"player_name":"LaMarcus Aldridge"}]
 ```
 ```
 Example 3: GO FROM "player100" OVER follow, serve YIELD properties(edge).degree, properties(edge).start_year;

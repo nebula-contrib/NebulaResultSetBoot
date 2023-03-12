@@ -79,7 +79,7 @@ public class ResultSetBoot {
                     }
                     matrixWithName.add(newRow);
                 }
-                return matrixWithName;
+                return JSONObject.toJSON(matrixWithName);
             }
         }
         if (withColumnName) {
